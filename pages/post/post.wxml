@@ -1,0 +1,26 @@
+<!--pages/post/post.wxml-->
+ <import src="post-item/post-item-tpl.wxml"/> 
+<view>
+  <!-- 注意：小程序属性列如autoplay='true'里面是字符串，字符串不为空即为Boolean值为true  -->
+<!--  
+有三种方法使属性为false:
+1.不加入属性,除非属性默认为true;
+2.属性='',属性为空
+3.属性='{{flase}}'  -->
+ 
+  <swiper autoplay='true' indicator-dots='true' interval='3000' vertical='{{false}}'>
+    <swiper-item>
+      <image src='/images/post/post-1@text.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/images/post/post-2@text.jpg'></image>
+    </swiper-item>
+    <swiper-item>
+      <image src='/images/post/post-3@text.jpg'></image>
+    </swiper-item>
+  </swiper>
+
+<block wx:for="{{postList}}" wx:for-item="item"> 
+	<template is="postItemTpl" data="{{item}}"/>
+</block>
+</view>
